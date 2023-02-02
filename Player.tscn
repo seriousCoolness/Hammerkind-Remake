@@ -1,0 +1,807 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Bodies/John_Step_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Bodies/John_Step_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Faces/John_Neutral.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Faces/John_Disgust.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Bodies/John_Slide_1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Bodies/John_Idle.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Faces/John_Angry.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Faces/John_Ranchorous.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Faces/John_Pensive.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Blunt_2_Front.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Blunt_2_Back.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Blunt_3_Front.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Blunt_1_Back.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Blunt_1_Front.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Blunt_3_Back.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Items/Item_Claw_Hammer.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Empty_2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/John_Normal/John_Arms/John_Empty_1.png" type="Texture" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.033, 61.1588 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 76.5236, 75.4047 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "blunt_attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "blunt_attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 21.9108, -104.441 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 21.9108, -106.279 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "jump" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 21.9108, -109.441 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "run"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 22.4986, -109.516 ), Vector2( 22.4986, -105.766 ), Vector2( 22.4986, -109.516 ), Vector2( 22.4986, -105.766 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "slide"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "slide" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21.9108, -105.691 ), Vector2( 21.9108, -104.441 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "angry"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "angry" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "disgust"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "disgust" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "neutral"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "neutral" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "pensive"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "pensive" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "ranchorous"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "ranchorous" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "blunt_attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArmsFront:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -52.7415, -34.3033 ), Vector2( 3.30104, -78.5474 ), Vector2( 26.9681, -29.4436 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmsBack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -54.0043, -34.7988 ), Vector2( 2.03824, -79.0429 ), Vector2( 24.4553, -32.4391 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WeaponSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -74.1699, -35.7556 ), Vector2( -2.19946, -107.136 ), Vector2( 65.0516, -15.1084 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ArmsFront:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "blunt_attack" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ArmsFront:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ArmsBack:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "blunt_attack" ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ArmsBack:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ArmsBack:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("WeaponSprite:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ArmsFront:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("WeaponSprite:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, -42.5001, 94.7719 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "empty_attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("WeaponSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmsFront:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ArmsBack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ArmsBack:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -1, 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ArmsBack:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 45.6924, -48.9569 ), Vector2( 49.2319, -17.1012 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ArmsBack:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ArmsBack:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "empty_attack" ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "hide_arms"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArmsFront:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmsBack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WeaponSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "slide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "blunt_attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "disgust",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "pensive",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "ranchorous",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "blunt_attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "empty_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 13 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "blunt_attack",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Players",
+]]
+position = Vector2( 371.994, 205.947 )
+collision_layer = 2
+collision_mask = 29
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.02667, -31.2338 )
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 4.0
+drag_margin_left = 0.1
+drag_margin_top = 0.3
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_drag_margin = true
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="Hammer" type="Area2D" parent="." groups=[
+"Weapons",
+]]
+priority = 1.0
+collision_layer = 0
+collision_mask = 0
+
+[node name="Hammer_Shape" type="CollisionShape2D" parent="Hammer"]
+position = Vector2( 26.7274, -53.1603 )
+shape = SubResource( 2 )
+
+[node name="BodyAnimations" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Body")
+anims/blunt_attack = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/run = SubResource( 6 )
+anims/slide = SubResource( 7 )
+
+[node name="HeadAnimations" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Body")
+anims/angry = SubResource( 8 )
+anims/disgust = SubResource( 9 )
+anims/neutral = SubResource( 10 )
+anims/pensive = SubResource( 11 )
+anims/ranchorous = SubResource( 12 )
+
+[node name="ArmAnimations" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Body")
+anims/blunt_attack = SubResource( 13 )
+anims/empty_attack = SubResource( 14 )
+anims/hide_arms = SubResource( 15 )
+
+[node name="Body" type="AnimatedSprite" parent="."]
+position = Vector2( -2.64264, 1.58817 )
+scale = Vector2( 0.65, 0.65 )
+z_index = 1
+frames = SubResource( 16 )
+animation = "idle"
+
+[node name="Head" type="AnimatedSprite" parent="Body"]
+position = Vector2( 21.9108, -106.279 )
+frames = SubResource( 17 )
+animation = "neutral"
+
+[node name="ArmsFront" type="AnimatedSprite" parent="Body"]
+visible = false
+position = Vector2( -52.7415, -34.3033 )
+z_index = 2
+frames = SubResource( 18 )
+animation = "blunt_attack"
+
+[node name="ArmsBack" type="AnimatedSprite" parent="Body"]
+visible = false
+position = Vector2( 45.6924, -48.9569 )
+z_index = -1
+frames = SubResource( 19 )
+animation = "empty_attack"
+
+[node name="WeaponSprite" type="Sprite" parent="Body"]
+visible = false
+position = Vector2( -74.1699, -35.7556 )
+z_index = 1
+texture = ExtResource( 18 )
+centered = false
+offset = Vector2( -33, -81 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="BodyAnimations" to="." method="_on_Body_animation_finished"]

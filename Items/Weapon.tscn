@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Weapon.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Items/Item_Claw_Hammer.png" type="Texture" id=3]
+
+[node name="Weapon" groups=[
+"Weapons",
+] instance=ExtResource( 1 )]
+mass = 7.26
+continuous_cd = 1
+script = ExtResource( 2 )
+display_name = "Error Weapon"
+texture = ExtResource( 3 )
+captchalogue_code = "00000001"
+grist_cost = {
+
+}

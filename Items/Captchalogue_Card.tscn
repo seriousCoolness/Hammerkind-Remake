@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Captchalogue_Card.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Items/Item_Captchalogue_Card.png" type="Texture" id=3]
+
+[sub_resource type="World" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.9658, 6.23557 )
+
+[node name="Captchalogue_Card" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+display_name = "Captchalogue Card"
+texture = ExtResource( 3 )
+custom_renderer = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="." index="0"]
+margin_left = -25.7177
+margin_top = -24.8178
+margin_right = 34.2823
+margin_bottom = 35.1822
+rect_min_size = Vector2( 60, 60 )
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Card Renderer" type="Viewport" parent="ViewportContainer" index="0"]
+size = Vector2( 60, 60 )
+size_override_stretch = true
+own_world = true
+world = SubResource( 1 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="ViewportContainer/Card Renderer" index="0"]
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Card Renderer/Spatial" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0391814, 1.45203 )
+projection = 1
+current = true
+size = 2.0
+near = 0.5
+
+[node name="Card" type="Sprite3D" parent="ViewportContainer/Card Renderer/Spatial" index="1"]
+transform = Transform( 0.945126, -0.262734, 0.194186, 0, 0.594374, 0.804189, -0.326707, -0.76006, 0.561758, 0, 0, 0 )
+cast_shadow = 0
+texture = ExtResource( 3 )
+
+[node name="Item_Inside" type="Sprite3D" parent="ViewportContainer/Card Renderer/Spatial" index="2"]
+transform = Transform( 0.945126, -0.262734, 0.194186, 0, 0.594374, 0.804189, -0.326707, -0.76006, 0.561758, 0, 0, 0 )
+cast_shadow = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2( 4.72471, 3.1498 )
+shape = SubResource( 2 )

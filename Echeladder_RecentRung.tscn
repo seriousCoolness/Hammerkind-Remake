@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://HS_Courier.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Echeladder_RecentRung.gd" type="Script" id=2]
+
+[node name="RecentRung" type="MarginContainer"]
+margin_right = 142.0
+margin_bottom = 32.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 142.0
+margin_bottom = 32.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 142.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.290196, 0.572549, 0.968627, 1 )
+text = "CLIMBED TO RUNG"
+
+[node name="Background" type="ColorRect" parent="VBoxContainer"]
+margin_top = 16.0
+margin_right = 142.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 142, 16 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rung" type="Label" parent="VBoxContainer/Background"]
+margin_right = 143.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Cool bucaroo!"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

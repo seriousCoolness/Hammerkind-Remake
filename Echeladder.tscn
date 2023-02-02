@@ -1,0 +1,227 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Echeladder.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Echeladder/Echeladder_base.png" type="Texture" id=2]
+[ext_resource path="res://HBoxContainer.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll_Decrement_Highlight.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll_Decrement.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll_Increment_Highlight.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll_Increment.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll_Grabber.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Echeladder/Ladder_Scroll_Grabber_Pressed.png" type="Texture" id=10]
+[ext_resource path="res://HS_Courier.fnt" type="BitmapFont" id=12]
+[ext_resource path="res://Sprites/Pickups/Health_Cube.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Pickups/Build_Grist.png" type="Texture" id=15]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 15, 30 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 15, 30 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 15, 293 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 15, 293 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 15, 30 )
+
+[node name="Echeladder" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.5
+margin_top = -227.0
+margin_right = 321.5
+margin_bottom = 223.0
+rect_min_size = Vector2( 650, 450 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -325.0
+margin_top = -225.0
+margin_right = 325.0
+margin_bottom = 225.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ladder" type="MarginContainer" parent="Background"]
+margin_left = 211.0
+margin_top = 80.0
+margin_right = 444.0
+margin_bottom = 403.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Ladder"]
+margin_right = 233.0
+margin_bottom = 323.0
+rect_clip_content = true
+script = ExtResource( 3 )
+
+[node name="VScrollBar" type="VScrollBar" parent="Background/Ladder/HBoxContainer"]
+margin_right = 15.0
+margin_bottom = 323.0
+custom_icons/increment_highlight = ExtResource( 4 )
+custom_icons/increment = ExtResource( 5 )
+custom_icons/decrement_highlight = ExtResource( 6 )
+custom_icons/decrement = ExtResource( 7 )
+custom_styles/grabber_highlight = SubResource( 1 )
+custom_styles/grabber = SubResource( 2 )
+custom_styles/scroll_focus = SubResource( 3 )
+custom_styles/scroll = SubResource( 4 )
+custom_styles/grabber_pressed = SubResource( 5 )
+min_value = -100.0
+max_value = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Ladder/HBoxContainer"]
+margin_left = 19.0
+margin_right = 227.0
+margin_bottom = 323.0
+rect_min_size = Vector2( 208, 317 )
+rect_clip_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Ladder/HBoxContainer/MarginContainer"]
+margin_right = 208.0
+margin_bottom = 323.0
+custom_constants/separation = 3
+alignment = 2
+
+[node name="RecentRungs" type="MarginContainer" parent="Background"]
+margin_left = 57.6636
+margin_top = 209.882
+margin_right = 199.664
+margin_bottom = 285.882
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/RecentRungs"]
+margin_right = 142.0
+margin_bottom = 75.0
+custom_constants/separation = 15
+
+[node name="StatBonuses" type="MarginContainer" parent="Background"]
+margin_left = 55.0
+margin_top = 312.0
+margin_right = 201.0
+margin_bottom = 393.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/StatBonuses"]
+margin_right = 146.0
+margin_bottom = 81.0
+custom_constants/separation = 16
+
+[node name="GelViscosity" type="HBoxContainer" parent="Background/StatBonuses/VBoxContainer"]
+margin_right = 146.0
+margin_bottom = 32.0
+custom_constants/separation = 8
+
+[node name="icon" type="TextureRect" parent="Background/StatBonuses/VBoxContainer/GelViscosity"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="TextContainer" type="Control" parent="Background/StatBonuses/VBoxContainer/GelViscosity"]
+margin_left = 40.0
+margin_right = 144.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 104, 32 )
+
+[node name="Label" type="Label" parent="Background/StatBonuses/VBoxContainer/GelViscosity/TextContainer"]
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 104, 16 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.290196, 0.572549, 0.968627, 1 )
+text = "GEL VISCOSITY"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/StatBonuses/VBoxContainer/GelViscosity/TextContainer"]
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 105.0
+margin_bottom = 33.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CacheLimit" type="HBoxContainer" parent="Background/StatBonuses/VBoxContainer"]
+margin_top = 48.0
+margin_right = 146.0
+margin_bottom = 80.0
+custom_constants/separation = 8
+
+[node name="icon" type="TextureRect" parent="Background/StatBonuses/VBoxContainer/CacheLimit"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="TextContainer" type="Control" parent="Background/StatBonuses/VBoxContainer/CacheLimit"]
+margin_left = 40.0
+margin_right = 144.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 104, 32 )
+
+[node name="Label" type="Label" parent="Background/StatBonuses/VBoxContainer/CacheLimit/TextContainer"]
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 104, 16 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.290196, 0.572549, 0.968627, 1 )
+text = "CACHE LIMIT"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/StatBonuses/VBoxContainer/CacheLimit/TextContainer"]
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 105.0
+margin_bottom = 33.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="scrolling" from="Background/Ladder/HBoxContainer/VScrollBar" to="Background/Ladder/HBoxContainer" method="_on_VScrollBar_scrolling"]

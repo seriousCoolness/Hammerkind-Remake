@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" height="470.45px" width="494.7px" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1.0, 0.0, 0.0, 1.0, 5.7, 5.1)">
+    <use height="278.1" transform="matrix(1.0, 0.0, 0.0, 1.0, 206.95, 83.05)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.809, 0.5878, -0.5878, 0.809, 301.1157, 91.3586)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.309, 0.951, -0.951, 0.309, 371.786, 152.3895)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.309, 0.951, -0.951, -0.309, 392.6982, 243.0918)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.809, 0.5878, -0.5878, -0.809, 356.3781, 328.8613)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-1.0, 0.0, 0.0, -1.0, 275.3, 377.45)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.809, -0.5878, 0.5878, -0.809, 182.234, 369.5912)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.309, -0.951, 0.951, -0.309, 112.0641, 308.5608)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.309, -0.951, 0.951, 0.309, 91.1517, 216.8081)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.809, -0.5878, 0.5878, 0.809, 127.1721, 131.3887)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-1.0, 0.0, 0.0, 1.0, 276.35, 83.05)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.809, 0.5878, 0.5878, 0.809, 182.1843, 91.3586)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.309, 0.951, 0.951, 0.309, 111.514, 152.3895)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.309, 0.951, 0.951, -0.309, 90.6018, 243.0918)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.809, 0.5878, 0.5878, -0.809, 126.9219, 328.8613)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(1.0, 0.0, 0.0, -1.0, 208.0, 377.45)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.809, -0.5878, -0.5878, -0.809, 301.066, 369.5912)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(0.309, -0.951, -0.951, -0.309, 371.2359, 308.5608)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.309, -0.951, -0.951, 0.309, 392.1483, 216.8081)" width="232.25" xlink:href="#sprite0"/>
+    <use height="278.1" transform="matrix(-0.809, -0.5878, -0.5878, 0.809, 356.1279, 131.3887)" width="232.25" xlink:href="#sprite0"/>
+  </g>
+  <defs>
+    <g id="sprite0" transform="matrix(1.0, 0.0, 0.0, 1.0, 9.0, 6.8)">
+      <use height="262.3" transform="matrix(1.0, 0.0, 0.0, 1.0, -2.0, -2.0)" width="225.2" xlink:href="#shape0"/>
+    </g>
+    <g id="shape0" transform="matrix(1.0, 0.0, 0.0, 1.0, 2.0, 2.0)">
+      <path d="M0.0 61.3 Q10.85 10.45 74.5 1.35 138.15 -7.8 181.15 45.15 224.1 98.05 221.0 156.1 217.9 214.1 184.95 258.3" fill="none" stroke="#38f43d" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.0"/>
+    </g>
+  </defs>
+</svg>

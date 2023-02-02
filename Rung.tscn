@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rung.gd" type="Script" id=1]
+[ext_resource path="res://HS_Courier.fnt" type="BitmapFont" id=2]
+
+[node name="1" type="ColorRect"]
+margin_top = 300.0
+margin_right = 208.0
+margin_bottom = 317.0
+rect_min_size = Vector2( 208, 17 )
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RungName" type="Label" parent="."]
+margin_right = 208.0
+margin_bottom = 17.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 208, 17 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dumb dumb stutid"
+align = 1
+valign = 1
+uppercase = true

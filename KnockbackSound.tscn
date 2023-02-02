@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sounds/SFX/sfx_blunt.wav" type="AudioStream" id=1]
+[ext_resource path="res://KnockbackSound.gd" type="Script" id=2]
+
+[node name="KnockbackSound" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+volume_db = 6.0
+script = ExtResource( 2 )
+[connection signal="finished" from="." to="." method="_on_KnockbackSound_finished"]

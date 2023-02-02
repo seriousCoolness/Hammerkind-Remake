@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Grist_Bar.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Pickups/Build_Grist.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/GUI/Grist_Cache_Meter_Progress.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/GUI/Grist_Cache_Meter_Base.png" type="Texture" id=4]
+
+[node name="Build" type="MarginContainer"]
+margin_right = 280.0
+margin_bottom = 50.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 298.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 240, 50 )
+texture = ExtResource( 4 )
+
+[node name="Icon" type="TextureRect" parent="Background"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 58.0
+margin_bottom = 52.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="Label" parent="Background"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -222.0
+margin_top = 41.0
+margin_right = -88.0
+margin_bottom = -15.0
+grow_horizontal = 0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.329412, 0.6, 0.882353, 1 )
+text = "20"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Background"]
+margin_left = 83.0
+margin_top = 20.0
+margin_right = 271.0
+margin_bottom = 32.0
+value = 100.0
+texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="." to="." method="_on_Build_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Build_mouse_exited"]

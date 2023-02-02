@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_house_chill.ogg-eb1605fa9c10a72367d4fd30819c8bbb.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/mus_house_chill.ogg"
+dest_files=[ "res://.import/mus_house_chill.ogg-eb1605fa9c10a72367d4fd30819c8bbb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/Captchalogue_Card.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Gate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/Perfectly_Generic_Object.tscn" type="PackedScene" id=5]
+[ext_resource path="res://House_Builder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Tiles/HouseTileSet.png" type="Texture" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 15, 16, 55, 16, 55, 48, 15, 48 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 15, 16, 55, 16, 55, 32, 15, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 10.8167, 52.8643, 51.3702, 14.0112, 64, 30.2273, 22.5556, 64 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "HouseTileSet.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 576, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = -1
+1/name = "HouseTileSet.png 1"
+1/texture = ExtResource( 7 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 576, 256, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = true
+1/shape_one_way_margin = 0.08
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": true,
+"one_way_margin": 0.08,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = -1
+2/name = "HouseTileSet.png 2"
+2/texture = ExtResource( 7 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 640, 64, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 4 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[node name="World" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -278.486, -69.4115 )
+collision_mask = 12289
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Gates" type="Node2D" parent="."]
+
+[node name="Gate" parent="Gates" instance=ExtResource( 4 )]
+position = Vector2( -279.937, -1300 )
+
+[node name="Gate2" parent="Gates" instance=ExtResource( 4 )]
+position = Vector2( -279.937, -3300 )
+gate_number = 2
+
+[node name="Gate3" parent="Gates" instance=ExtResource( 4 )]
+position = Vector2( -279.937, -6300 )
+gate_number = 3
+
+[node name="Gate4" parent="Gates" instance=ExtResource( 4 )]
+position = Vector2( -279.937, -9300 )
+gate_number = 4
+
+[node name="Underling Spawner" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="House_Builder" parent="." instance=ExtResource( 6 )]
+
+[node name="Chunks" type="Node2D" parent="."]
+
+[node name="Basetilemap" type="TileMap" parent="Chunks"]
+mode = 2
+tile_set = SubResource( 3 )
+cell_custom_transform = Transform2D( -37.5, 0, 0, -37, 27, 28 )
+collision_mask = 14
+format = 1
+tile_data = PoolIntArray( 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0 )
+
+[node name="Captchalogue_Card" parent="." instance=ExtResource( 3 )]
+position = Vector2( -138.79, -34.9623 )
+
+[node name="Perfectly_Generic_Object" parent="." instance=ExtResource( 5 )]
+position = Vector2( -61.4489, -37.0812 )
+[connection signal="ready" from="." to="House_Builder" method="_on_World_ready"]
+[connection signal="gate_triggered" from="Gates/Gate" to="." method="_on_Gate_gate_triggered"]
+[connection signal="gate_triggered" from="Gates/Gate2" to="." method="_on_Gate_gate_triggered"]
+[connection signal="gate_triggered" from="Gates/Gate3" to="." method="_on_Gate_gate_triggered"]
+[connection signal="gate_triggered" from="Gates/Gate4" to="." method="_on_Gate_gate_triggered"]
+[connection signal="timeout" from="Underling Spawner" to="." method="_on_Underling_Spawner_timeout"]
+[connection signal="timeout" from="House_Builder" to="." method="_on_House_Builder"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Other Objects/Spirograph.svg" type="Texture" id=1]
+[ext_resource path="res://Spirograph_World.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.984665, 0.174456, 0, -0.174456, 0.984665, 0, 1.434, 9.268 )
+projection = 1
+current = true
+size = 11.78
+near = 0.5
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+texture = ExtResource( 1 )

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Items/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Weapons/Claw_Hammer.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 16.2224
+height = 39.7012
+
+[node name="Claw_Hammer" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 1 )
+script = ExtResource( 2 )
+display_name = "Claw Hammer"
+captchalogue_code = "nZ7Un6BI"
+grist_cost = {
+"Build": 2
+}
+properties = {
+
+}
+sprite_offset = Vector2( -33, -81 )
+stat_effects = {
+
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2( 3.74579, 1.49831 )
+rotation = -0.166809
+shape = SubResource( 2 )
